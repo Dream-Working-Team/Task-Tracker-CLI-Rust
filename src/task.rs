@@ -11,6 +11,6 @@ pub struct Task {
 pub enum Status {
     /// establecemos un tipo de dato enum para definir los posibles estados de la tarea
     New,
-    InPogress,
+    InProgress,
     Done,
 }
