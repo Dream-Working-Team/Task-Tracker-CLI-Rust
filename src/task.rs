@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 pub struct Task {
     /// definimos los atributos del objeto
     id: u32,
-    user_id: u32, // <--- Relacionamos la tarea con un usuario
+    user_id: u32,
     title: String,
     description: String,
     status: Status,
@@ -33,6 +33,7 @@ impl Task {
             id,
             description,
             title,
+            user_id,
             /// establecemos el estado inicial de la tarea como New
             status: Status::New,
             /// clonamos la fecha actual para la fecha de creacion
