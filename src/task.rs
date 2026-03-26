@@ -1,10 +1,10 @@
-use chrono::Local;
 /// invocamos chrono para el manejo de las fechas
-use serde::{Deserialize, Serialize};
 /// invocamos serde para el manejo y creacion de los Json
+use chrono::Local;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
 /// funciones de serde que entienden la forma del objeto y ayudan a convertirla en Json
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Task {
     /// definimos los atributos del objeto
     id: u32,
