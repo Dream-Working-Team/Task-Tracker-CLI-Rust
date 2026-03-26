@@ -3,8 +3,8 @@
 use bcrypt::{hash, verify, DEFAULT_COST};
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
 /// creamos la estructura User que se encarga de manejar los usuarios
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct User {
     // definimos atributos
     id: u32,
@@ -31,7 +31,7 @@ impl User {
     pub fn username(&self) -> &str {
         &self.username
     }
-
+    /// funcion para verificar la contraseña
     pub fn verify_password(&self, password: &str) -> bool {
         verify(password, &self.password_hash).unwrap_or(false)
     }
