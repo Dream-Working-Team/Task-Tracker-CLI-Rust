@@ -8,6 +8,7 @@ use serde::{Deserialize, Serialize};
 pub struct Task {
     /// definimos los atributos del objeto
     id: u32,
+    user_id: u32, // <--- Relacionamos la tarea con un usuario
     title: String,
     description: String,
     status: Status,
@@ -43,6 +44,9 @@ impl Task {
     /// creamos getters para cada uno de los atributos del objeto Task
     pub fn id(&self) -> u32 {
         self.id
+    }
+    pub fn user_id(&self) -> u32 {
+        self.user_id
     }
     pub fn title(&self) -> &str {
         &self.title
