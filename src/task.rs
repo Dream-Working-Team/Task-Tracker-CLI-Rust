@@ -65,4 +65,10 @@ impl Task {
         /// actualizamos la fecha de actualizacion con la fecha del cambio de status
         self.update_date = Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
     }
+    /// creamos un setter para el atributo description
+    pub fn set_description(&mut self, description: String) {
+        self.description = description;
+        /// actualizamos la fecha de actualizacion con la fecha del cambio de status
+        self.update_date = Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
+    }
 }
