@@ -26,19 +26,19 @@ pub enum Status {
 
 impl Task {
     /// Creamos el constructor para el objeto Task
-    pub fn new(id: u32, title: String, description: String) -> Self {
-        /// invocamos la fecha actual
+    pub fn new(id: u32, user_id: u32, title: String, description: String) -> Self {
+        // invocamos la fecha actual
         let now = Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
         Self {
             id,
             description,
             title,
             user_id,
-            /// establecemos el estado inicial de la tarea como New
+            // establecemos el estado inicial de la tarea como New
             status: Status::New,
-            /// clonamos la fecha actual para la fecha de creacion
+            // clonamos la fecha actual para la fecha de creacion
             created_date: now.clone(),
-            /// asignamos la fecha actual para la fecha de actualizacion
+            // asignamos la fecha actual para la fecha de actualizacion
             update_date: now,
         }
     }
@@ -67,13 +67,13 @@ impl Task {
     /// creamos un setter para el atributo status
     pub fn set_status(&mut self, status: Status) {
         self.status = status;
-        /// actualizamos la fecha de actualizacion con la fecha del cambio de status
+        // actualizamos la fecha de actualizacion con la fecha del cambio de status
         self.update_date = Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
     }
     /// creamos un setter para el atributo description
     pub fn set_description(&mut self, description: String) {
         self.description = description;
-        /// actualizamos la fecha de actualizacion con la fecha del cambio de status
+        // actualizamos la fecha de actualizacion con la fecha del cambio de status
         self.update_date = Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
     }
 }

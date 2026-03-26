@@ -1,0 +1,43 @@
+    Checking task_tracker_cli v0.1.0 (/home/ramon/Documents/RustTackTracker)
+error[E0658]: attributes on expressions are experimental
+  --> src/task.rs:70:9
+   |
+70 | ...   //...e status
+   |       ^^...^^^^^^^^
+   |
+   = note: see issue #15701 <https://github.com/rust-lang/rust/issues/15701> for more information
+   = help: `///` is used for outer documentation comments; for a plain comment, use `//`
+
+error[E0658]: attributes on expressions are experimental
+  --> src/task.rs:76:9
+   |
+76 | ...   //...e status
+   |       ^^...^^^^^^^^
+   |
+   = note: see issue #15701 <https://github.com/rust-lang/rust/issues/15701> for more information
+   = help: `///` is used for outer documentation comments; for a plain comment, use `//`
+
+warning: unused doc comment
+  --> src/task.rs:70:9
+   |
+70 | ...   //...e status
+   |       ^^...^^^^^^^^
+71 | ...   self.update_date = Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
+   |       ---------------- rustdoc does not generate documentation for expressions
+   |
+   = help: use `//` for a plain comment
+   = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused doc comment
+  --> src/task.rs:76:9
+   |
+76 | ...   //...e status
+   |       ^^...^^^^^^^^
+77 | ...   self.update_date = Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
+   |       ---------------- rustdoc does not generate documentation for expressions
+   |
+   = help: use `//` for a plain comment
+
+For more information about this error, try `rustc --explain E0658`.
+warning: `task_tracker_cli` (bin "task_tracker_cli") generated 2 warnings
+error: could not compile `task_tracker_cli` (bin "task_tracker_cli") due to 2 previous errors; 2 warnings emitted
