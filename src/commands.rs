@@ -1,3 +1,4 @@
+/// invocamos los modulos necesarios para el funcionamiento del programa
 use crate::storage::Storage;
 use crate::task::{Status, Task};
 use crate::users::User;
@@ -69,7 +70,14 @@ pub fn register(username: &str, password: &str, storage: &Storage) {
 /// Función para añadir una nueva tarea
 pub fn add_task(title: String, desc: String, user: &User, storage: &Storage) {
     let mut all_tasks = storage.read_data::<Task>().unwrap_or_else(|_| Vec::new());
-    let new_id = (all_tasks.len() as u32) + 1;
+    // Buscamos el ID más alto del usuario actual para la nueva tarea
+    let new_id = all_tasks
+        .iter()
+        .filter(|t| t.user_id() == user.id())
+        .map(|t| t.id())
+        .max()
+        .unwrap_or(0)
+        + 1;
     let new_task = Task::new(new_id, user.id(), title, desc);
     all_tasks.push(new_task);
     if let Err(e) = storage.save_data(&all_tasks) {

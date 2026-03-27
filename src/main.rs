@@ -1,8 +1,8 @@
+/// invocamos todas las librerias y modulos necesarios
 mod commands;
 mod storage;
 mod task;
 mod users;
-
 use std::env;
 use std::fs;
 use storage::Storage;
@@ -30,6 +30,10 @@ fn main() {
     match command {
         //Comandos Públicos
         "register" => {
+            if current_user.is_some() {
+                println!("Error: Ya has iniciado sesión. Cierra la sesión primero para registrar un nuevo usuario.");
+                return;
+            }
             if args.len() > 4 {
                 println!("ERROR !. Demasiados argumentos. Si el nombre de usuario o la contraseña tienen espacios, usa comillas (ej: \"Mi Nombre\").");
                 return;
@@ -41,6 +45,10 @@ fn main() {
             commands::register(&args[2], &args[3], &users_storage);
         }
         "login" => {
+            if current_user.is_some() {
+                println!("Error: Ya has iniciado sesión. Cierra la sesión primero para cambiar de usuario.");
+                return;
+            }
             if args.len() > 4 {
                 println!("ERROR !. Demasiados argumentos. Si el nombre de usuario o la contraseña tienen espacios, usa comillas.");
                 return;

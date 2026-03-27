@@ -3,45 +3,27 @@
     "id": 1,
     "user_id": 1,
     "title": "lavar platos",
-    "description": "lavar todos los platos que hay sucios",
-    "status": "InProgress",
-    "created_date": "2026-03-26 23:51:10",
-    "update_date": "2026-03-27 00:17:52"
+    "description": "lavar los corotos sucios",
+    "status": "New",
+    "created_date": "2026-03-27 17:19:35",
+    "update_date": "2026-03-27 17:19:35"
   },
   {
     "id": 2,
     "user_id": 1,
-    "title": "hacer la tarea",
-    "description": "hacer la fkin tarea",
-    "status": "Done",
-    "created_date": "2026-03-26 23:51:53",
-    "update_date": "2026-03-26 23:52:47"
-  },
-  {
-    "id": 3,
-    "user_id": 2,
-    "title": "salvar",
-    "description": "vidas",
-    "status": "New",
-    "created_date": "2026-03-27 00:09:33",
-    "update_date": "2026-03-27 00:09:33"
-  },
-  {
-    "id": 4,
-    "user_id": 3,
-    "title": "tarea 1",
-    "description": "xdxdxd",
-    "status": "InProgress",
-    "created_date": "2026-03-27 16:41:40",
-    "update_date": "2026-03-27 16:42:42"
-  },
-  {
-    "id": 5,
-    "user_id": 3,
     "title": "tarea 2",
-    "description": "skereee",
+    "description": "xdddd",
     "status": "New",
-    "created_date": "2026-03-27 16:52:27",
-    "update_date": "2026-03-27 16:52:27"
+    "created_date": "2026-03-27 17:20:01",
+    "update_date": "2026-03-27 17:20:01"
+  },
+  {
+    "id": 1,
+    "user_id": 2,
+    "title": "pasar coleto",
+    "description": "xdxdxd",
+    "status": "New",
+    "created_date": "2026-03-27 17:21:30",
+    "update_date": "2026-03-27 17:21:30"
   }
 ]
