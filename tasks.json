@@ -25,5 +25,14 @@
     "status": "New",
     "created_date": "2026-03-27 00:09:33",
     "update_date": "2026-03-27 00:09:33"
+  },
+  {
+    "id": 4,
+    "user_id": 3,
+    "title": "tarea 1",
+    "description": "xdxdxd",
+    "status": "InProgress",
+    "created_date": "2026-03-27 16:41:40",
+    "update_date": "2026-03-27 16:42:42"
   }
 ]
