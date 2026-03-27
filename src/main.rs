@@ -34,30 +34,38 @@ fn main() {
                 println!("Error: Ya has iniciado sesión. Cierra la sesión primero para registrar un nuevo usuario.");
                 return;
             }
-            if args.len() > 4 {
-                println!("ERROR !. Demasiados argumentos. Si el nombre de usuario o la contraseña tienen espacios, usa comillas (ej: \"Mi Nombre\").");
+            if args.len() > 3 {
+                println!("ERROR !. Demasiados argumentos. Si el nombre de usuario tiene espacios, usa comillas (ej: \"Mi Nombre\").");
                 return;
             }
-            if args.len() < 4 {
-                println!("ERROR !. Uso correcto: register \"usuario\" \"password\"");
+            if args.len() < 3 {
+                println!("ERROR !. Uso correcto: register \"usuario\"");
                 return;
             }
-            commands::register(&args[2], &args[3], &users_storage);
+            if let Ok(password) = rpassword::prompt_password("Introduce tu contraseña para registrarte: ") {
+                commands::register(&args[2], &password, &users_storage);
+            } else {
+                println!("Error al leer la contraseña.");
+            }
         }
         "login" => {
             if current_user.is_some() {
                 println!("Error: Ya has iniciado sesión. Cierra la sesión primero para cambiar de usuario.");
                 return;
             }
-            if args.len() > 4 {
-                println!("ERROR !. Demasiados argumentos. Si el nombre de usuario o la contraseña tienen espacios, usa comillas.");
+            if args.len() > 3 {
+                println!("ERROR !. Demasiados argumentos. Si el nombre de usuario tiene espacios, usa comillas.");
                 return;
             }
-            if args.len() < 4 {
-                println!("ERROR !. Uso correcto: login \"usuario\" \"password\"");
+            if args.len() < 3 {
+                println!("ERROR !. Uso correcto: login \"usuario\"");
                 return;
             }
-            commands::login(&args[2], &args[3], &users_storage);
+            if let Ok(password) = rpassword::prompt_password("Introduce tu contraseña para iniciar sesión: ") {
+                commands::login(&args[2], &password, &users_storage);
+            } else {
+                println!("Error al leer la contraseña.");
+            }
         }
         "logout" => {
             commands::logout();
@@ -159,8 +167,8 @@ fn print_usage(user: Option<&users::User>) {
         println!("Estado: No has iniciado sesión.");
     }
     println!("\nUso:");
-    println!("cargo run -- register <usuario> <password>     - Crear una cuenta");
-    println!("cargo run -- login <usuario> <password>        - Iniciar sesión persistentemente");
+    println!("cargo run -- register <usuario>                - Crear una cuenta (pedirá contraseña de forma segura)");
+    println!("cargo run -- login <usuario>                   - Iniciar sesión (pedirá contraseña de forma segura)");
     println!("cargo run -- logout                            - Cerrar sesión actual");
 
     println!("\nAcciones (requieren estar logueado):");

@@ -1,22 +1,7 @@
 [
   {
     "id": 1,
-    "username": "ramon gomez",
-    "password_hash": "$2b$12$mGUB8YTBGwxnnG6Q2EGsCuXB/1rFz1Yq5sxtr2y2465Vb4y4LE/ka"
-  },
-  {
-    "id": 2,
-    "username": "carolina",
-    "password_hash": "$2b$12$Dn.A2gt1UhzLW1IrpOiK4O2YjETLJ6VSt7Y9f86WI9to8tg8CCr5u"
-  },
-  {
-    "id": 3,
-    "username": "maria",
-    "password_hash": "$2b$12$YliebIJLJQNmL8mA.bm9X.it/hGR.wJcnQ0PmGWKD2HNMdCi7PbXy"
-  },
-  {
-    "id": 4,
-    "username": "andres",
-    "password_hash": "$2b$12$VUm5/duzkZxKfbVpirhMg.HU57Bkw7pLKluVtTJtEPNk56dDR/eWi"
+    "username": "Ramon Gomez",
+    "password_hash": "$2b$12$zcjruJAtPJJvWVmBS1.CJ.f.dD/zfiRwKpS4qbuOR59XD1Dw.Meh2"
   }
 ]
