@@ -23,8 +23,7 @@ impl Storage {
     /// funcion para guardar datos en un archivo Json
     pub fn save_data<T: Serialize>(&self, data: &Vec<T>) -> io::Result<()> {
         // convertimos el vector a un string Json mediante serde
-        let json = serde_json::to_string_pretty(data)
-            .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+        let json = serde_json::to_string_pretty(data).map_err(io::Error::other)?;
         // escribimos en el archivo usando la ruta guardada
         fs::write(&self.file_path, json)?;
         Ok(())
@@ -37,8 +36,7 @@ impl Storage {
         // leemos el archivo
         let archive_content = fs::read_to_string(&self.file_path)?;
         // usamos serde para convertir el string Json en un vector
-        let data = serde_json::from_str(&archive_content)
-            .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+        let data = serde_json::from_str(&archive_content).map_err(io::Error::other)?;
         Ok(data)
     }
 }
