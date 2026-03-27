@@ -26,15 +26,23 @@ fn main() {
     match command {
         //Comandos Públicos
         "register" => {
+            if args.len() > 4 {
+                println!("ERROR !. Demasiados argumentos. Si el nombre de usuario o la contraseña tienen espacios, usa comillas (ej: \"Mi Nombre\").");
+                return;
+            }
             if args.len() < 4 {
-                println!("Uso: register <usuario> <password>");
+                println!("ERROR !. Uso correcto: register \"usuario\" \"password\"");
                 return;
             }
             commands::register(&args[2], &args[3], &users_storage);
         }
         "login" => {
+            if args.len() > 4 {
+                println!("ERROR !. Demasiados argumentos. Si el nombre de usuario o la contraseña tienen espacios, usa comillas.");
+                return;
+            }
             if args.len() < 4 {
-                println!("Uso: login <usuario> <password>");
+                println!("ERROR !. Uso correcto: login \"usuario\" \"password\"");
                 return;
             }
             commands::login(&args[2], &args[3], &users_storage);
@@ -56,8 +64,12 @@ fn main() {
             match command {
                 // llamamos al comando para agregar tarea
                 "add" => {
+                    if args.len() > 4 {
+                        println!("ERROR !. Demasiados argumentos. Si el título o la descripción tienen espacios, encuádralos entre comillas (ej: \"Mi Tarea\").");
+                        return;
+                    }
                     if args.len() < 4 {
-                        println!("Uso: add <título> <descripción>");
+                        println!("ERROR !. Uso correcto: add \"título\" \"descripción\"");
                         return;
                     }
                     commands::add_task(args[2].clone(), args[3].clone(), &user, &tasks_storage);
@@ -74,8 +86,12 @@ fn main() {
                 }
                 // llamamos al comando para actualizar tarea
                 "update" => {
+                    if args.len() > 4 {
+                        println!("ERROR !. Demasiados argumentos. Si la nueva descripción tiene espacios, encuádrala entre comillas.");
+                        return;
+                    }
                     if args.len() < 4 {
-                        println!("Uso: update <id> <nueva_desc>");
+                        println!("ERROR !. Uso correcto: update <id> \"nueva_desc\"");
                         return;
                     }
                     if let Ok(id) = args[2].parse::<u32>() {
@@ -85,7 +101,7 @@ fn main() {
                 // llamamos al comando para eliminar tarea
                 "delete" => {
                     if args.len() < 3 {
-                        println!("Uso: delete <id>");
+                        println!("ERROR !. Uso correcto: delete <id>");
                         return;
                     }
                     if let Ok(id) = args[2].parse::<u32>() {
@@ -95,7 +111,7 @@ fn main() {
                 // llamamos al comando para cambiar estado a en progreso
                 "mark-in-progress" => {
                     if args.len() < 3 {
-                        println!("Uso: mark-in-progress <id>");
+                        println!("ERROR !. Uso correcto: mark-in-progress <id>");
                         return;
                     }
                     if let Ok(id) = args[2].parse::<u32>() {
@@ -105,7 +121,7 @@ fn main() {
                 // llamamos al comando para cambiar estado a done
                 "mark-done" => {
                     if args.len() < 3 {
-                        println!("Uso: mark-done <id>");
+                        println!("ERROR !. Uso correcto: mark-done <id>");
                         return;
                     }
                     if let Ok(id) = args[2].parse::<u32>() {
@@ -114,7 +130,7 @@ fn main() {
                 }
                 // si el comando no es reconocido, mostramos un mensaje de error
                 _ => println!(
-                    "Comando '{}' no reconocido. Escribe solo el programa para ver la ayuda.",
+                    "Comando '{}' no reconocido. Escribe solo 'cargo run' para ver la ayuda.",
                     command
                 ),
             }
@@ -136,11 +152,11 @@ fn print_usage(user: Option<&users::User>) {
     println!("cargo run -- logout                            - Cerrar sesión actual");
 
     println!("\nAcciones (requieren estar logueado):");
-    println!("cargo run -- add <título> <desc>               - Añadir nueva tarea");
+    println!("cargo run -- add \"título\" \"desc\"               - Añadir nueva tarea");
     println!(
         "cargo run -- list [todo|in-progress|done]      - Listar tus tareas (con filtro opcional)"
     );
-    println!("cargo run -- update <id> <nueva_desc>          - Cambiar descripción de una tarea");
+    println!("cargo run -- update <id> \"nueva_desc\"          - Cambiar descripción de una tarea");
     println!("cargo run -- delete <id>                       - Eliminar una tarea");
     println!("cargo run -- mark-in-progress <id>             - Cambiar estado a En Progreso");
     println!("cargo run -- mark-done <id>                    - Cambiar estado a Terminada");
