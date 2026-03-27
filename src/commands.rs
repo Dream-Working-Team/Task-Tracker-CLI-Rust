@@ -14,7 +14,7 @@ fn authenticate(username: &str, password: &str, storage: &Storage) -> Option<Use
 /// Inicia sesión guardando el nombre del usuario en un archivo temporal
 pub fn login(username: &str, password: &str, storage: &Storage) {
     if let Some(_) = authenticate(username, password, storage) {
-        if let Err(e) = fs::write(".session", username) {
+        if let Err(e) = fs::write("data/.session", username) {
             println!("Error al crear la sesión: {}", e);
         } else {
             println!("¡Inicio de sesión con éxito! Bienvenido, {}.", username);
@@ -26,7 +26,7 @@ pub fn login(username: &str, password: &str, storage: &Storage) {
 
 /// Cierra la sesión borrando el archivo temporal
 pub fn logout() {
-    if fs::remove_file(".session").is_ok() {
+    if fs::remove_file("data/.session").is_ok() {
         println!("Sesión cerrada correctamente.");
     } else {
         println!("No había ninguna sesión activa.");
@@ -35,7 +35,7 @@ pub fn logout() {
 
 /// Obtiene el usuario actualmente logueado
 pub fn get_logged_user(storage: &Storage) -> Option<User> {
-    if let Ok(username) = fs::read_to_string(".session") {
+    if let Ok(username) = fs::read_to_string("data/.session") {
         let users = storage.read_data::<User>().unwrap_or_else(|_| Vec::new());
         users.into_iter().find(|u| u.username() == username)
     } else {

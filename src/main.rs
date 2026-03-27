@@ -4,14 +4,18 @@ mod task;
 mod users;
 
 use std::env;
+use std::fs;
 use storage::Storage;
 use task::Status;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    let users_storage = Storage::new("users.json".to_string());
-    let tasks_storage = Storage::new("tasks.json".to_string());
+    // Nos aseguramos que la carpeta data existe
+    fs::create_dir_all("data").ok();
+
+    let users_storage = Storage::new("data/users.json".to_string());
+    let tasks_storage = Storage::new("data/tasks.json".to_string());
 
     // Intentamos cargar la sesión actual al iniciar el programa
     let current_user = commands::get_logged_user(&users_storage);

@@ -34,5 +34,14 @@
     "status": "InProgress",
     "created_date": "2026-03-27 16:41:40",
     "update_date": "2026-03-27 16:42:42"
+  },
+  {
+    "id": 5,
+    "user_id": 3,
+    "title": "tarea 2",
+    "description": "skereee",
+    "status": "New",
+    "created_date": "2026-03-27 16:52:27",
+    "update_date": "2026-03-27 16:52:27"
   }
 ]
