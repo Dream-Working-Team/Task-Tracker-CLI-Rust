@@ -1,5 +1,4 @@
 use serde::de::DeserializeOwned;
-/// traemos el objeto Task
 /// libreria para manejar lo relacionado a los Json
 /// para leer y escribir archivos
 /// para manejar posibles errores
