@@ -52,14 +52,8 @@ impl Task {
     pub fn title(&self) -> &str {
         &self.title
     }
-    pub fn description(&self) -> &str {
-        &self.description
-    }
     pub fn status(&self) -> &Status {
         &self.status
-    }
-    pub fn created_date(&self) -> &str {
-        &self.created_date
     }
     pub fn update_date(&self) -> &str {
         &self.update_date

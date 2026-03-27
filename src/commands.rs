@@ -3,8 +3,8 @@ use crate::task::{Status, Task};
 use crate::users::User;
 use std::fs;
 
-/// Función para autenticar a un usuario
-pub fn authenticate(username: &str, password: &str, storage: &Storage) -> Option<User> {
+/// Función para autenticar a un usuario (uso interno)
+fn authenticate(username: &str, password: &str, storage: &Storage) -> Option<User> {
     let users = storage.read_data::<User>().unwrap_or_else(|_| Vec::new());
     users
         .into_iter()
