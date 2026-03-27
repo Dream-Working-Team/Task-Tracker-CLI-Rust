@@ -1,21 +1,12 @@
 [
   {
-    "id": 1,
-    "user_id": 1,
-    "title": "lavar platos",
-    "description": "lavar los corotos sucios",
-    "status": "New",
-    "created_date": "2026-03-27 17:19:35",
-    "update_date": "2026-03-27 17:19:35"
-  },
-  {
     "id": 2,
     "user_id": 1,
     "title": "tarea 2",
     "description": "xdddd",
-    "status": "New",
+    "status": "Done",
     "created_date": "2026-03-27 17:20:01",
-    "update_date": "2026-03-27 17:20:01"
+    "update_date": "2026-03-27 18:24:09"
   },
   {
     "id": 1,
@@ -25,5 +16,23 @@
     "status": "New",
     "created_date": "2026-03-27 17:21:30",
     "update_date": "2026-03-27 17:21:30"
+  },
+  {
+    "id": 3,
+    "user_id": 1,
+    "title": "tarea 3",
+    "description": "que lala",
+    "status": "New",
+    "created_date": "2026-03-27 18:25:55",
+    "update_date": "2026-03-27 18:25:55"
+  },
+  {
+    "id": 1,
+    "user_id": 4,
+    "title": "tarea x",
+    "description": "tareax",
+    "status": "New",
+    "created_date": "2026-03-27 18:29:11",
+    "update_date": "2026-03-27 18:29:11"
   }
 ]

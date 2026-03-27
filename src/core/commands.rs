@@ -1,7 +1,7 @@
 /// invocamos los modulos necesarios para el funcionamiento del programa
-use crate::storage::Storage;
-use crate::task::{Status, Task};
-use crate::users::User;
+use crate::core::storage::Storage;
+use crate::models::task::{Status, Task};
+use crate::models::users::User;
 use std::fs;
 
 /// Función para autenticar a un usuario (uso interno)

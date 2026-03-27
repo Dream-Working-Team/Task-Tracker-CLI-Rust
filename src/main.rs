@@ -1,12 +1,12 @@
 /// invocamos todas las librerias y modulos necesarios
-mod commands;
-mod storage;
-mod task;
-mod users;
+pub mod core;
+pub mod models;
 use std::env;
 use std::fs;
-use storage::Storage;
-use task::Status;
+use crate::core::commands;
+use crate::core::storage::Storage;
+use crate::models::task::Status;
+use crate::models::users;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
