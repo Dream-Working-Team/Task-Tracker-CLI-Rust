@@ -4,7 +4,7 @@ Un gestor de tareas de interfaz de línea de comandos (CLI) simple, seguro y ult
 
 ## 🚀 Características
 
-* **Cero Dependencias (*Crate-free*):** Construido exclusivamente con la biblioteca estándar de Rust (`std::env`, `std::fs`, `std::io`). No utiliza dependencias externas (ni siquiera `serde`), parseando y manipulando el formato JSON de forma completamente manual y nativa.
+* **Dependencias:** Construido con la biblioteca estándar de Rust (`std::env`, `std::fs`, `std::io`) y utilizando dependencias externas como Serde, Chrono y Rpassword.
 * **Almacenamiento Local:** Las tareas se guardan automáticamente en un archivo `tasks.json` en el directorio actual. El archivo se inicializa de forma segura si no existe.
 * **Gestión Completa (CRUD):** Permite añadir, actualizar y eliminar tareas fácilmente desde la terminal.
 * **Control de Estados:** Transiciones fluidas entre estados (`todo`, `in-progress`, `done`).
