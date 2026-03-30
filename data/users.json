@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "username": "Ramon Gomez",
+    "password_hash": "$2b$12$zcjruJAtPJJvWVmBS1.CJ.f.dD/zfiRwKpS4qbuOR59XD1Dw.Meh2"
+  },
+  {
+    "id": 2,
+    "username": "Maria Garcia",
+    "password_hash": "$2b$12$8dUqHoIQVQxWD/XyQWQU7e4WY5GKjW1fqpPPQuTbDfi8wIUGDgunm"
+  }
+]
